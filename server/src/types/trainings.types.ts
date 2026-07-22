@@ -6,6 +6,7 @@ export type workoutSets = {
 
 
 export type createTrainingDto = {
+    user: string,
     date: string,
     sets: workoutSets[],
     trainingSuccess: boolean
