@@ -2,13 +2,13 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { WorkoutController } from './workout/workout.controller';
-import { TrainingsController } from './trainings/trainings.controller';
-import { UsersController } from './users/users.controller';
+import { WorkoutModule } from './workout/workout.module';
+import { TrainingModule } from './trainings/trainings.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, WorkoutController, TrainingsController, UsersController],
+  imports: [WorkoutModule, TrainingModule, UsersModule],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
