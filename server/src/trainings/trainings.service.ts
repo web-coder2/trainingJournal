@@ -27,4 +27,10 @@ export class TrainigsService {
         })
     }
 
+    getByLogin(login: string) {
+        return this.trainings.filter((train) => {
+            return train.user === login
+        })
+    }
+
 }
