@@ -10,7 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "bootstrap": "^5.3.8",
+    "jquery": "^4.0.0",
     "nuxt": "^4.5.1",
+    "popper.js": "^1.16.1",
     "vue": "^3.5.40",
     "vue-router": "^5.2.0"
   }
