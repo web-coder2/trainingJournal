@@ -5,16 +5,14 @@ import { workoutCategories } from "src/types/workout.types";
 @Injectable()
 export class WorkoutService {
 
-    constructor(
-        private readonly workoutsList: createWorkoutDto[] = [
-            {
-                name: "Прыжки на коробку",
-                forGroup: ['прыгучесть', 'кардио', 'сила ног', 'ловкость'],
-                categories: workoutCategories[2],
-                imageSource: "/img/jumps.png"
-            }
-        ]
-    ) {}
+    private readonly workoutsList: createWorkoutDto[] = [
+        {
+            name: "Прыжки на коробку",
+            forGroup: ['прыгучесть', 'кардио', 'сила ног', 'ловкость'],
+            categories: workoutCategories[2],
+            imageSource: "/img/jumps.png"
+        }
+    ]
 
     getAll() {
         return this.workoutsList

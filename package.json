@@ -1,0 +1,25 @@
+{
+  "name": "trainingjournal",
+  "version": "1.0.0",
+  "description": "приложение trainingJournal для програмы тренировок",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:client": "cd client && npm run dev",
+    "start:server": "cd server && npm run start:dev",
+    "start:dev": "concurrently \"npm run start:server\" \"npm run start:client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-coder2/trainingJournal.git"
+  },
+  "author": "w3b-c0d3r",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/web-coder2/trainingJournal/issues"
+  },
+  "homepage": "https://github.com/web-coder2/trainingJournal#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.4"
+  }
+}
