@@ -2,6 +2,11 @@
     <div class="d-flex justify-content-center align-items-center vh-100">
         <div class="p-4 border rounded" style="max-width: 400px; width: 100%;">
             <h2 class="text-center mb-4">{{ title }}</h2>
+
+            <div v-if="message" class="alert text-light text-center" :class="message.class" role="alert">
+                {{ message.msg }}
+            </div>
+
             <div class="mb-3">
                 <label class="form-label">Логин</label>
                 <input class="form-control" v-model="authData.login" placeholder="Введите логин" required>
@@ -24,7 +29,8 @@
                     login: "",
                     password: ""
                 },
-                title: "Авторизация"
+                title: "Авторизация",
+                message: null
             }
         },
         methods: {
@@ -35,10 +41,16 @@
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ authUser: this.authData })
+                        body: JSON.stringify(this.authData)
                     })
                     const result = await response.json()
-                    console.log(result)
+                    
+                    if (result.isAuth) {
+                        this.message = { msg: `авторизация пройдена ${result?.user?.name}`, class: 'bg-success' }
+                    } else {
+                        this.message = { msg: 'авторизация не пройдена', class: 'bg-danger' }
+                    }
+
                 } catch (e) {
                     console.log(`ошибка авторизации ${e.message}`)
                 }

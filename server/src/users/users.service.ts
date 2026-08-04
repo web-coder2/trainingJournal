@@ -11,9 +11,9 @@ export class UsersService {
 
     private readonly usersList: createUserDto[] = [
         { 
-            name: 'web-coder', 
-            login: 'web-coder', 
-            password: 'web-coder' 
+            name: 'superuser', 
+            login: 'admin', 
+            password: 'admin' 
         }
     ]
 
@@ -23,9 +23,16 @@ export class UsersService {
     }
 
     userAuth(authData: usersAuthDto) {
-        return this.usersList.find((user) => {
-            user.login === authData.login && user.password === authData.password
+        const user = this.usersList.find((user) => {
+            return user.login === authData.login && user.password === authData.password
         })
+
+        if (user) {
+            return { isAuth: true, user }
+        } else {
+            return { isAuth: false, user: null }
+        }
+
     }
 
     getAll() {
