@@ -9,8 +9,14 @@ export class WorkoutService {
         {
             name: "Прыжки на коробку",
             forGroup: ['прыгучесть', 'кардио', 'сила ног', 'ловкость'],
-            categories: workoutCategories[2],
+            categories: workoutCategories.CARDIO,
             imageSource: "/img/jumps.png"
+        },
+        {
+            name: "Взбирание на стену",
+            forGroup: ['ловкость', 'сила плеч'],
+            categories: workoutCategories.FORCE,
+            imageSource: "/img/climb.png"
         }
     ]
 

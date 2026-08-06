@@ -30,6 +30,7 @@ export default {
       items: [
         { label: 'index', to: '/' },
         { label: 'login', to: '/login' },
+        { label: 'workouts', to: '/workouts' },
         { label: 'trainings', to: '/trainings' },
       ],
     }
