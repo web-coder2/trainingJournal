@@ -11,7 +11,7 @@
             <div class="d-flex mt-3">
                 <button class="btn btn-dark" @click="fetchFilterWorkouts()">Поиск</button>
                 <button class="btn btn-danger" style="margin-left: 10px;" @click="resetFilters()">Сбросить</button>
-                <button class="btn btn-success" style="margin-left: 10px;">создать</button>
+                <button class="btn btn-success" style="margin-left: 10px;" @click="showModalCreate = true">создать</button>
             </div>
         </div>
 
@@ -28,6 +28,23 @@
         </div>
     </div>
 
+    <div v-if="showModalCreate" class="modal fade show" style="display: block;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Создание упражнения</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Форма для создания упражнения</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @click="showModalCreate = false">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-if="showModalCreate" class="modal-backdrop fade show"></div>
+
 </template>
 
 <script>
@@ -38,7 +55,8 @@
                 title: "Список упражнений",
                 workoutsList: null,
                 groupList: ['прыгучесть', 'кардио', 'сила ног', 'ловкость', 'сила плеч'],
-                selectedGroup: null
+                selectedGroup: null,
+                showModalCreate: false
             }
         },
         methods: {
