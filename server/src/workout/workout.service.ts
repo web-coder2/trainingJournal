@@ -31,7 +31,13 @@ export class WorkoutService {
     }
 
     createOne(newWorkout: createWorkoutDto) {
-        this.workoutsList.push(newWorkout)
+        try {
+            this.workoutsList.push(newWorkout)
+            return `new workout created successfuly ${newWorkout}`
+        } catch (e) {
+            const errMsg = `error by create new workout ${e.message}`
+            return errMsg
+        }
     }
 
 }
